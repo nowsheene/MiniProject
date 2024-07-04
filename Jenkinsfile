@@ -2,7 +2,6 @@ pipeline {
 
    agent  any
     stages {
-       stages {
         stage('clone') {
             steps {
                  script{
@@ -27,4 +26,3 @@ pipeline {
     }
 
   }
-}
