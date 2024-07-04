@@ -10,6 +10,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 sh 'pwd; terraform init'
+                sh 'pwd; terraform plan'
                 sh "pwd; terraform apply"
             }
         }
