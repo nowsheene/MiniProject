@@ -10,7 +10,7 @@ pipeline {
         stage('clone') {
             steps {
                  script{
-                        git "https://github.com/nowsheen/MiniProject.git"
+                        git "https://github.com/nowsheene/MiniProject.git"
                     }
                 }
             }
