@@ -7,7 +7,7 @@ pipeline {
                  script{
                         dir("terraform")
                         {
-                            https://github.com/nowsheene/MiniProject.git
+                            git "https://github.com/nowsheene/MiniProject.git"
                         }
                     }
                 }
