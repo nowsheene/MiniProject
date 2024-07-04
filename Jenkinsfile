@@ -2,17 +2,6 @@ pipeline {
 
    agent  any
     stages {
-        stage('clone') {
-            steps {
-                 script{
-                        dir("terraform")
-                        {
-                            git "https://github.com/nowsheene/MiniProject.git"
-                        }
-                    }
-                }
-            }
-
         stage('Deploy') {
             steps {
                 sh 'pwd;cd terraform/ ; terraform init'
