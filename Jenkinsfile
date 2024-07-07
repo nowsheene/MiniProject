@@ -12,7 +12,8 @@ pipeline {
                  script{
                         dir("terraform")
                         {
-                            git "https://github.com/nowsheene/MiniProject.git"
+                            git branch: 'main',
+                              url: "https://github.com/nowsheene/MiniProject.git"
                         }
                     }
                 }
