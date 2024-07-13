@@ -1,0 +1,10 @@
+---
+- name: update all packages
+  apt:
+    name: "*"
+    state: latest
+
+- name: Install netdata
+  shell: curl https://get.netdata.cloud/kickstart.sh > /tmp/netdata-kickstart.sh && sh /tmp/netdata-kickstart.sh
+  notify:
+    - to restart netdata
