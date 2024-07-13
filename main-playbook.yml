@@ -1,0 +1,14 @@
+---
+  - name: Configurations on frontend servers
+    hosts: frontend
+    remote_user: cloud-user
+    become: true
+    roles:
+      - nginx
+
+  - name: Configurations on backend servers
+    hosts: backend
+    remote_user: ubuntu
+    become: true
+    roles:
+      - netdata
