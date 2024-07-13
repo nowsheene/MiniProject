@@ -1,0 +1,43 @@
+---
+- name: Update the packages
+  dnf:
+    name: "*"
+    state: latest
+
+- name: Disable SELinux
+  selinux:
+    state: disabled
+  register: output
+
+- name: Reboot machine and send a message
+  reboot:
+    msg: "Rebooting machine in 5 seconds"
+  when:
+    output.reboot_required
+
+- name: Install firewalld
+  dnf:
+    name: firewalld
+    state: present
+
+- name: start firewalld
+  systemd:
+    name: firewalld
+    state: stopped
+    enabled: false
+
+- name: Install epel
+  dnf: name=epel-release state=latest
+
+- name: Install nginx
+  dnf: name=nginx state=latest
+
+- name: start nginx
+  service:
+    name: nginx
+    state: started
+
+- name: adding netdata related configuration changes to nginx
+  template:
+    src: netdata1.conf.j2
+    dest: /etc/nginx/conf.d/netdata1.conf
