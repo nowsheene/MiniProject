@@ -41,3 +41,5 @@
   template:
     src: netdata1.conf.j2
     dest: /etc/nginx/conf.d/netdata1.conf
+  notify:
+    - to restart nginx
