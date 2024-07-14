@@ -7,19 +7,10 @@ pipeline {
    
    agent  any
     stages {
-       stage('clone') {
+         stage("Clone and Execute Ansible") {
             steps {
-                 script{
-                        dir("Ansible")
-                        {
-                            git branch: 'main',
-                              url: "https://github.com/nowsheene/MiniProject.git"
-                        }
-                    }
-                }
-            }
-         stage("Execute Ansible") {
-            steps {
+                git branch: 'main',
+                   url: "https://github.com/nowsheene/MiniProject.git"
                 ansiblePlaybook  inventory: '/opt/infrastructure-pipeline/inventory',
                                  playbook: 'main-playbook.yml'
             }    
