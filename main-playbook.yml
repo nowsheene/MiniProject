@@ -1,4 +1,11 @@
 ---
+  - name: ip address of backend server
+    hosts: backend
+    tasks:
+      - name: get ip address
+        ipify_facts:
+        register: public_ip
+  
   - name: Configurations on frontend servers
     hosts: frontend
     remote_user: cloud-user
