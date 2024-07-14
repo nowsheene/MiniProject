@@ -17,10 +17,7 @@ resource "aws_instance" "centos_instance" {
       host = self.public_ip
   }
 
- #provisioner "local-exec" {
-  # command = "echo 'self.public_ip self.tags.name' >> /etc/hostname"
-  #}
-
+ 
  provisioner "remote-exec" {
    inline = [
      "sudo hostnamectl set-hostname 'c8.local'",
@@ -37,10 +34,6 @@ resource "aws_instance" "ubuntu_instance" {
     Name = "u22.local"
   }
  
- #provisioner "local-exec" {
-  #   command = "echo 'self.public_ip self.tags.name' >> /etc/hostname"
-  #}
-
  connection {
       type     = "ssh"
       user     = "ubuntu"
