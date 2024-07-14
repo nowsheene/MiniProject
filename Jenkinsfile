@@ -26,7 +26,12 @@ pipeline {
                 sh "pwd; terraform apply -auto-approve"
             }
         }
-        
+
+       stage("Execute Ansible") {
+            steps {
+                ansiblePlaybook  inventory: '/opt/infrastructure-pipeline/inventory',
+                                 playbook: 'main-playbook.yml'
+            }
     }
 
   }
