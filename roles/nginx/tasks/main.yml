@@ -39,7 +39,7 @@
 
 - name: adding netdata related configuration changes to nginx
   template:
-    src: netdata1.conf.j2
-    dest: /etc/nginx/conf.d/netdata1.conf
+    src: netdata.conf.j2
+    dest: /etc/nginx/conf.d/netdata.conf
   notify:
     - to restart nginx
