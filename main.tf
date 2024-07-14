@@ -49,7 +49,7 @@ resource "aws_instance" "ubuntu_instance" {
 }
 
 resource "aws_security_group" "my_sg" {
-  name        = "my-security-group"
+  name        = "my-security-group1"
   description = "Allow all traffic to inbound and outbound"
   ingress {
     from_port   = 0
