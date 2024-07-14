@@ -92,9 +92,9 @@ resource "local_file" "ansible" {
   filename = "/opt/infrastructure-pipeline/inventory"
   content = <<-EOT
     [frontend]
-    ${aws_instance.centos_instance.tags.Name}
+    ${aws_instance.centos_instance.tags.Name} ansible_user=cloud-user
     
     [backend]
-    ${aws_instance.ubuntu_instance.tags.Name}
+    ${aws_instance.ubuntu_instance.tags.Name} ansible_user=ubuntu
   EOT
 }
